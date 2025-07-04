@@ -1,30 +1,25 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import About from './components/About';
-import Skills from './components/Skills';
-import Projects from './components/Projects';
-import Contact from './components/Contact';
+
+import Home from './pages/Home';
+import About from './pages/About';
+import Skills from './pages/Skills';
+import Projects from './pages/Projects';
+import Contact from './pages/Contact';
 
 function App() {
   return (
-    <div>
+    <Router>
       <Navbar />
-      
-      <header style={{ background: '#333', color: '#fff', padding: '1rem', textAlign: 'center' }}>
-        <h1>Bienvenue sur le portfolio de Betoo</h1>
-      </header>
-
-      <main>
-        <About />
-        <Skills />
-        <Projects />
-        <Contact />
-      </main>
-
-      <footer style={{ background: '#333', color: '#fff', textAlign: 'center', padding: '1rem' }}>
-        © {new Date().getFullYear()} Betoo. Tous droits réservés.
-      </footer>
-    </div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/skills" element={<Skills />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+    </Router>
   );
 }
 
